@@ -1,0 +1,321 @@
+$burnt-orange: #CC5500;
+$leather-brown: #8B4513;
+$dusty-gold: #DAA520;
+$sepia: #704214;
+$desert-sand: #EDC9AF;
+
+.main-container {
+  // background-color: $desert-sand;
+  background: linear-gradient(#fcf3fc,#e76f51,#9e729e);
+
+  color: $sepia;
+  padding-top: 80px;
+  .hero {
+    text-align: center;
+    color: $sepia;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: $burnt-orange;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .plans {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    .plan-card {
+
+      flex: 1 1 300px;
+      max-width: 320px;
+      height: 500px;
+      background-color: $leather-brown;
+      border: 3px solid darken($leather-brown, 10%);
+      border-radius: 16px;
+      padding: 2rem;
+      color: $dusty-gold;
+      justify-content: space-between;
+      box-shadow: 4px 4px 12px rgba(19, 18, 18, 0.3);
+      text-align: left;
+      overflow: hidden;
+    .ok{
+        display: block;
+        line-height: 18px;
+        text-align: start;
+        padding-right: 20px;
+        position: relative;
+        right: 80px;
+        
+    }
+    
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+ul {
+    width: 329px;
+    height:280px;
+    color: #EDC9AF;
+    font-size: 17px;
+    line-height: 30px;
+    margin-left: 40px;
+   
+  }
+  li{
+    list-style-type: disc;
+
+  }
+
+      .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        color: lighten($dusty-gold, 5%);
+      }
+
+     .plan-card,button {
+        background-color: $burnt-orange;
+        color: white;
+        padding: 0.6rem 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 1rem;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($burnt-orange, 10%);
+        }
+      }
+    }
+  }
+
+  .free-trial {
+    text-align: center;
+    background-color: $leather-brown;
+    color: $desert-sand;
+    margin-top: 3rem;
+    width:90%;
+    padding: 20px;
+    margin-left: 70px;
+
+    // padding: 2rem;
+    border-radius: 16px;
+    border: 3px solid $sepia;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+
+    h1 {
+      color: $dusty-gold;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+  }
+}
+
+@media (max-width: 375px) {
+  .main-container {
+    padding: 1rem;
+
+    .hero {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+
+    .plans {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      .plan-card {
+        width: 100%;
+        max-width: 90%;
+        height: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        ul {
+          width: 100%;
+          max-width: 100%;
+          margin-left: 0;
+          padding-left: 1rem;
+          font-size: 15px;
+          line-height: 26px;
+        }
+
+        .ok {
+          right: 0;
+          padding-right: 0;
+          text-align: left;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        h5 {
+          font-size: 0.9rem;
+        }
+
+        .price {
+          font-size: 1rem;
+        }
+
+        button {
+          width: 100%;
+          margin-top: 1rem;
+          margin-left: 0;
+          font-size: 1rem;
+          padding: 0.6rem;
+          background-color: $burnt-orange;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($burnt-orange, 10%);
+          }
+        }
+      }
+    }
+
+    .free-trial {
+      padding: 1.5rem;
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .main-container {
+    padding: 0.8rem;
+
+    .hero {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+
+    .plans {
+      .plan-card {
+        width: 100%;
+        max-width: 95%;
+        height: auto;
+        padding: 0.8rem;
+
+        h2 {
+          font-size: 1.1rem;
+        }
+
+        h5 {
+          font-size: 0.85rem;
+        }
+
+        ul {
+          width: 100%;
+          max-width: 100%;
+          font-size: 14px;
+          line-height: 24px;
+          padding-left: 1rem;
+        }
+
+        .ok {
+          right: 0;
+          padding-right: 0;
+        }
+
+        .price {
+          font-size: 0.95rem;
+        }
+
+        button {
+          width: 100%;
+          margin-top: 1rem;
+          margin-left: 0;
+          font-size: 0.95rem;
+          padding: 0.5rem;
+          background-color: $burnt-orange;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($burnt-orange, 10%);
+          }
+        }
+      }
+    }
+
+    .free-trial {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

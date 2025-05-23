@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+
+$burnt-orange: #cc5500;
+$leather-brown: #8b4513;
+$dusty-gold: #daa520;
+$sepia: #704214;
+$desert-sand: #edc9af;
+
+input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+      display: none;
+    }
+
+.signin-screen {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Cinzel", serif;
+  background: $desert-sand;
+  color: $sepia;
+  overflow: hidden;
+
+  .left-panel {
+    flex: 1;
+    background: linear-gradient(
+      135deg,
+      lighten($leather-brown, 10%) 0%,
+      darken($leather-brown, 5%) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-right: 6px solid $burnt-orange;
+    box-shadow: inset 0 0 60px rgba(255, 140, 0, 0.5);
+
+    .character-img {
+      width: 600px;
+      height: 650px;
+      border: 5px solid $dusty-gold;
+      border-radius: 16px;
+      filter: sepia(0.7) contrast(1.2) saturate(0.8);
+      box-shadow: 0 0 20px $burnt-orange;
+      background-color: $desert-sand;
+    }
+  }
+
+  .right-panel {
+    flex: 1;
+    background: $desert-sand;
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .signin-form {
+      background: #fff9e6;
+      padding: 2.5rem 3rem;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba($leather-brown, 0.6);
+      width: 100%;
+      max-width: 420px;
+      color: $sepia;
+      position: relative;
+
+      .form-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 2px;
+        color: $burnt-orange;
+        text-shadow: 1px 1px 1px $leather-brown;
+      }
+
+      label {
+        display: block;
+        font-weight: 700;
+        margin: 1rem 0 0.5rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 2px solid $leather-brown;
+        font-size: 1rem;
+        background-color: $desert-sand;
+        color: $sepia;
+        box-shadow: inset 0 2px 5px rgba($leather-brown, 0.15);
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: $burnt-orange;
+          outline: none;
+          background-color: lighten($desert-sand, 5%);
+        }
+      }
+
+      .input-wrapper {
+        position: relative;
+
+        .toggle-password-text {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: $burnt-orange;
+          font-weight: 600;
+          cursor: pointer;
+          padding: 0;
+          font-size: 14px;
+          user-select: none;
+        }
+      }
+
+      .social-heading {
+        text-align: center;
+        margin-top: 1rem;
+      }
+    .reg{
+      
+    color: #CC5500;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background-color: $leather-brown;
+          border: 2px solid $dusty-gold;
+          border-radius: 50%;
+          color: $dusty-gold;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 6px rgba(112, 66, 20, 0.3);
+
+          &:hover {
+            background-color: $burnt-orange;
+            color: $desert-sand;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 0 10px $dusty-gold;
+          }
+
+          svg {
+            pointer-events: none;
+          }
+        }
+      }
+
+      .submit-btn {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        padding: 14px;
+        font-size: 1.4rem;
+        background-color: $burnt-orange;
+        color: #fff;
+        border: 3px solid $dusty-gold;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 0 10px $dusty-gold;
+        transition: background-color 0.3s ease;
+
+        svg {
+          fill: #fff;
+        }
+
+        &:hover {
+          background-color: darken($burnt-orange, 10%);
+          box-shadow: 0 0 20px $dusty-gold;
+        }
+      }
+
+      .error-message {
+        color: #b22222;
+        font-size: 0.9rem;
+        margin-top: 5px;
+      }
+
+      .signin-footer {
+        margin-top: 1.8rem;
+        font-size: 1rem;
+        text-align: center;
+        color: $leather-brown;
+
+        a {
+          color: $burnt-orange;
+          font-weight: 700;
+          text-decoration: underline;
+          cursor: pointer;
+
+          &:hover {
+            color: darken($burnt-orange, 15%);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .signin-screen .right-panel .signin-form {
+    .form-title {
+      font-size: 1.6rem;
+    }
+
+    .submit-btn {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .signin-screen {
+    flex-direction: column;
+
+    .left-panel {
+      display: none; // Hide character art on small screens to save space
+    }
+
+    .right-panel {
+      flex: none;
+      width: 100%;
+      padding: 2rem 1.2rem;
+
+      .signin-form {
+        padding: 1.8rem 1.2rem;
+        max-width: 100%;
+        box-shadow: none;
+
+        .form-title {
+          font-size: 1.8rem;
+        }
+
+        label {
+          font-size: 1rem;
+        }
+
+        input {
+          padding: 12px 14px;
+          font-size: 0.95rem;
+        }
+
+        .toggle-password-text {
+          font-size: 13px;
+          right: 12px;
+        }
+
+        .submit-btn {
+          font-size: 1.2rem;
+          padding: 12px;
+        }
+
+        .social-icons {
+          gap: 0.8rem;
+
+          a {
+            width: 42px;
+            height: 42px;
+          }
+        }
+
+        .signin-footer {
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+

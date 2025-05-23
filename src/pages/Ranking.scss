@@ -1,0 +1,237 @@
+$font-main: 'Georgia', serif;
+$bg-main: #fdf5e6;
+$bg-panel: #fffaf0;
+$text-main: #3b2f2f;
+$accent: #e76f51;
+$muted: #a1705d;
+$button-bg: #d2b48c;
+$border-dark: #8b5a2b;
+
+
+.ran{
+  background: linear-gradient(#bd7b38,#e76f51);
+  padding-top: 55px;
+  height: 100vh;
+
+}
+.container {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+.left-panel,
+.right-panel {
+  background-color: $bg-panel;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: darken($text-main, 10%);
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+
+    &.active {
+      background-color: $accent;
+      color: white;
+    }
+
+    &:not(.active) {
+      color: $muted;
+    }
+  }
+}
+
+.leaderboard {
+  list-style-position: inside;
+  padding-left: 0;
+  font-size: 18px;
+  margin-bottom: 30px;
+
+  li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.posse-button {
+  background-color: $button-bg;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.user-info {
+  font-size: 18px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.posse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+
+  button {
+    background-color: lighten($button-bg, 5%);
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($button-bg, 5%);
+    }
+  }
+}
+
+.joined-msg {
+  background-color: #e0ffe0;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #60a060;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #336633;
+}
+
+.chat-box {
+  background-color: #fef2dc;
+  border: 3px solid $border-dark;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+
+  .message {
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .leaderboard {
+    font-size: 16px;
+
+    li {
+      font-size: 15px;
+    }
+  }
+
+  .posse-button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .user-info {
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
+
+  .posse-list button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .chat-box {
+    padding: 12px;
+
+    input {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .posse-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .leaderboard {
+    font-size: 15px;
+  }
+
+  .chat-box input {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .posse-list button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

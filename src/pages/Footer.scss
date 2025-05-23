@@ -1,0 +1,76 @@
+.footer {
+  background: black;
+  color:#bbb;
+  padding:3rem 1rem 2rem;
+  text-align:center;
+ 
+  &__brand {
+    max-width:1100px;
+    margin:0 auto 2rem;
+    // display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.8rem;
+ 
+    .logo {
+         height:80px;
+         border-radius: 50px;
+
+    }
+    p { 
+      max-width:400px; 
+      font-size:1.2rem; 
+      color:#26c9e6; }
+  }
+  
+  &__grid {
+    max-width:1100px;
+    margin:0 auto 2.5rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:2rem;
+    text-align:left;
+  }
+ 
+  .col {
+    .exp {
+      color:#fff;
+      font-size:1.4rem;
+      margin-bottom:.7rem;
+    }
+    a {
+      display:block;
+      font-size:.95rem;
+      color:#bbb;
+      margin:1.4rem 0;
+      text-decoration:none;
+ 
+      &:hover { color:#ffb347; }
+    }
+ 
+    .social a {
+      display:inline-block;
+      margin-right:.6rem;
+      font-size:1.2rem;
+      color:#26c9e6;
+ 
+      &:hover { color:#ffb347; }
+    }
+  }
+ 
+  .copy {
+    font-size:.8rem;
+    color:#666;
+  }
+}
+ 
+@media(max-width:500px){
+  .footer__grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+ .ff-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }

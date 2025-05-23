@@ -1,0 +1,130 @@
+
+
+$burnt-orange: #CC5500;
+$leather-brown: #8B4513;
+$dusty-gold: #DAA520;
+$sepia: #704214;
+$desert-sand: #EDC9AF;
+
+.payment-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: $desert-sand;
+  background: linear-gradient(#bd7b38,#e76f51);
+
+  padding: 1rem;
+}
+
+.payment-card {
+  background-color: $leather-brown;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.payment-title {
+  text-align: center;
+  color: $dusty-gold;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  .payment-button {
+    flex: 1;
+    margin: 0 0.25rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: $desert-sand;
+    color: $sepia;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &.active {
+      background-color: $burnt-orange;
+      color: #fff;
+    }
+  }
+}
+.cvvv{
+    width: 65px;
+}
+
+.card-inputs,
+.upi-input,
+.netbanking-select {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+  padding: 10px;
+
+  input,
+  select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $dusty-gold;
+    border-radius: 0.5rem;
+    background-color: $desert-sand;
+    color: $sepia;
+    font-size: 0.95rem;
+
+    &::placeholder {
+      color: $sepia;
+    }
+  }
+}
+
+.card-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.pay-now-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: $burnt-orange;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: darken($burnt-orange, 10%);
+  }
+}
+
+// Responsive for 320px - 375px
+@media (max-width: 375px) {
+  .payment-card {
+    padding: 1.25rem;
+  }
+
+  .payment-methods {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .payment-button {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .card-row {
+    flex-direction: column;
+  }
+}
