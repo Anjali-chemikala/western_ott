@@ -29,17 +29,15 @@ $desert-sand: #edc9af;
     box-shadow: inset 0 0 60px rgba(255, 140, 0, 0.5);
 
     .character-img {
-    //   max-width: 100%;
     width: 600px;
     height: 780px;
-    //   height: auto;
-      border: 5px solid $dusty-gold;
-      border-radius: 16px;
-      filter: sepia(0.7) contrast(1.2) saturate(0.8);
-      box-shadow: 0 0 20px $burnt-orange;
-      background-color: $desert-sand;
-    }
+    border: 5px solid $dusty-gold;
+    border-radius: 16px;
+    filter: sepia(0.7) contrast(1.2) saturate(0.8);
+    box-shadow: 0 0 20px $burnt-orange;
+    background-color: $desert-sand;
   }
+}
 
   .right-panel {
     flex: 1;
@@ -209,24 +207,13 @@ $desert-sand: #edc9af;
   }
 }
 
-.signup-form::after {
-  // content: "🌵";
-  position: absolute;
-  bottom: 15px;
-  right: 20px;
-  font-size: 2.5rem;
-  opacity: 0.15;
-  pointer-events: none;
-  user-select: none;
-}
 
-// Mobile responsiveness for 375px and below
 @media (max-width: 375px) {
   .signup-screen {
     flex-direction: column;
 
     .left-panel {
-      display: none; // Hide image for small screens to save space
+      display: none; 
     }
 
     .right-panel {
@@ -271,7 +258,6 @@ $desert-sand: #edc9af;
   }
 }
 
-// Tighter adjustments for 320px screens
 @media (max-width: 320px) {
   .signup-screen {
     .right-panel {

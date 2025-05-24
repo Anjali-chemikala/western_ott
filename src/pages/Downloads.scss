@@ -1,0 +1,132 @@
+.download-page {
+  padding: 2rem;
+  background-color: #f4f1ea;
+  min-height: 100vh;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #704214; 
+   
+  }
+
+  .download-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        svg {
+          vertical-align: middle;
+        }
+      }
+
+      .clear-all {
+        background-color: #cc5500; 
+        color: white;
+
+        &:hover {
+          background-color: #a84400;
+        }
+      }
+
+      .back-button {
+        background-color: #8b4513; 
+        color: white;
+
+        &:hover {
+          background-color: #6e3610;
+        }
+      }
+    }
+  }
+
+  .no-downloads {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+
+    .download-card {
+      background-color: #fff;
+      border: 2px solid #8b4513;
+      border-radius: 12px;
+      padding: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+          cursor: pointer;
+
+        background-color: #f36f3b;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
+      }
+
+   
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .download-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .button-group {
+      margin-top: 1rem;
+      flex-direction: column;
+      width: 100%;
+
+      button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}
+.image-title {
+  margin: 0.5rem 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: #704214; 
+  font-size: 0.95rem;
+  text-align: center;
+    &:hover {
+          color: #fff;
+          cursor: pointer;
+        }
+}

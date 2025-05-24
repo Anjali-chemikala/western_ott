@@ -11,22 +11,18 @@ $desert-sand: #EDC9AF;
 
 .bbbb{
    background: linear-gradient(#bd7b38,#e76f51);
-
-   height: 100vh;
-   padding-top: 70px;
+   padding-bottom: 20px;
+   height: 100%;
 }
 .trail-map-container {
     font-family: "Cinzel", serif;
   background: $desert-sand url('https://www.transparenttextures.com/patterns/old-map.png');
-//   background-color: #704214;
   padding: 30px 20px;
   border-radius: 16px;
   max-width: 700px;
   margin: 30px auto;
   box-shadow: 0 0 15px $leather-brown;
   color: $sepia;
-//   position: relative;
-//   overflow: hidden;
   border: 6px double $leather-brown;
 }
 
@@ -113,9 +109,10 @@ svg.trail-path {
   filter: drop-shadow(0 0 6px $dusty-gold);
 }
 
-
 .rider-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
   }
+
+  

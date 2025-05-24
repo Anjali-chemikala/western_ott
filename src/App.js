@@ -16,6 +16,12 @@ import ShowdownPath from './pages/EpisodeTimeline';
 import Ranking from './pages/Ranking';
 import Video from './pages/Video';
 import Footer from './pages/Footer';
+import Downloads from './pages/Downloads';
+import History from './pages/History';
+import Savelater from './pages/Savelater';
+import Viewall from './pages/Viewall';
+import AccountSettings from './pages/Accountsettings';
+import Westernmovies from './pages/Westernmovies';
 
 const App = () => {
   return (
@@ -36,21 +42,12 @@ const App = () => {
        <Route path='/ranking' element={< Ranking/>} />
        <Route path='/video' element={< Video/>} />
        <Route path='/footer' element={< Footer/>} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       <Route path='/downloads' element={< Downloads/>} />
+       <Route path='/history' element={< History/>} />
+       <Route path='/savelater' element={< Savelater/>} />
+       <Route path='/viewall' element={< Viewall/>} />
+        <Route path='/westernmovies' element={< Westernmovies/>} />
+        <Route path='/accountsettings' element={< AccountSettings/>} />
 
        </Routes>
     </div>

@@ -1,185 +1,3 @@
-
-// $bg-page:        #f4f1ec;         
-// $bg-strip:       #ebe6df;         
-// $bg-card:        #ffffff;         
-// $bg-card-hover:  #faf7f3;
-// $bg-poster-grad: rgba(0,0,0,0.35); 
-// $gold:           #c49a6c;
-// $gold-dark:      #a87f54;
-// $text-head:      #3a2b1f;         
-// $text-body:      #2b2b2b;
- 
-// body{
-//   overflow-x:hidden;
-
-// }
- 
-// .poster{
-//   position:relative;
-//   width:100vw;
-//   height:90vh;
-//   display:flex;
-//   align-items:center;
-//   justify-content:center;
-//   overflow:hidden;
-//   color:#fff;
-// }
-// .poster1{
-//   position:absolute; inset:0;
-//   img{
-//     width:100%;
-//     height:100%;
-//     object-fit:cover;
-//     filter:brightness(1.0);
-//     transition:filter .5s;}
-//   .overlay{
-//     position:absolute;
-//     inset:0;
-//     background:linear-gradient(to bottom,$bg-poster-grad 20%,rgba(0,0,0,.65) 100%);
-// }
-// }
-// .postercontent{
-//   position:relative;
-//   text-align:center;
-//   padding:0 1rem;
-//   max-width:700px;
-//   z-index:10;
-//   h1
-//   {
-//     font-size:3.8rem;
-//     margin-bottom:.5rem;
-// }
-//   p {
-//     font-size:1.2rem;
-//     line-height:1.4;
-//     margin-bottom:1.5rem;
-// }
-//   button{
-//     margin:0 .5rem;
-//     padding:.7rem 1.3rem;
-//     border-radius:4px;
-//     font-weight:600;
-//     cursor:pointer;
-//     border:none;
-//     box-shadow:0 3px 6px rgba(0,0,0,.25);
-//     transition:background-color .3s,color .3s;
-//     &:first-of-type{
-//         background:$gold;
-//         color:$text-head;
-//         border:2px solid $gold-dark;
-//         &:hover{
-//             background:$gold-dark;
-//             }}
-//     &:last-of-type {
-//         background:transparent;
-//         border:2px solid #fff;
-//         color:#fff;
-//     &:hover{
-//             background:#fff;
-//             color:$text-head;
-//             }}
-//   }
-// }
- 
-// .strip{padding:2rem 1rem;
-//     background:$bg-strip;}
-// .strip__header{
-//   display:flex;
-//   justify-content:space-between;
-//   align-items:center;
-//   margin-bottom:1rem;
-//   h2{
-//     font-size:1.8rem;
-//     font-weight:700;
-//     color:$text-head;
-// }
-//   .view-all{
-//     background:transparent;
-//     border:2px solid $gold;
-//     color:$gold;
-//     padding:.4rem 1rem;
-//     border-radius:4px;
-//     font-weight:600;
-//     cursor:pointer;
-//     transition:background-color .3s,color .3s;
-//     &:hover{
-//         background:$gold;
-//         color:$text-head;
-//     }
-//   }
-// }
- 
-// .strip__scroller{
-//   display:flex;
-//   gap:1rem;
-//   overflow-x:auto;
-//   overflow-y:hidden;
-//   scroll-behavior:smooth;
-//   padding-bottom:.5rem;
-//   white-space:nowrap;
-//   &::-webkit-scrollbar{height:6px;}
-//   &::-webkit-scrollbar-track{background:transparent;}
-//   &::-webkit-scrollbar-thumb{background:$gold;border-radius:3px;}
-// }
- 
-// .card{
-//   flex:0 0 180px;
-//   text-align:center;
-//   cursor:pointer;
-//   border-radius:10px;
-//   box-shadow:0 2px 8px rgba(0,0,0,.15);
-//   transition:transform .2s,
-//   box-shadow .2s,background .2s;
-//   &:hover{
-//     transform:scale(1.05);
-//     background:$bg-card-hover;
-//     box-shadow:0 6px 18px rgba(0,0,0,.25);}
-//   img{
-//     width:100%;
-//     aspect-ratio:2/3;
-//     object-fit:cover;
-//     border-radius:6px 6px 0 0;}
-//   .title{
-//     margin-top:.4rem;
-//     font-size:1.3rem;
-//     font-weight:600;
-//     color:$text-head;
-//     padding:.3rem 0 .2rem;}
-// }
-// .strip__scroller {
-//   display: flex;
-//   gap: 1rem;
-//   overflow-x: auto;
-//   overflow-y: hidden;
-//   scroll-behavior: smooth;
-//   padding-bottom: 0.5rem;
-//   white-space: nowrap;
- 
-//   scrollbar-width: none;         
-//   -ms-overflow-style: none;       
- 
-//   &::-webkit-scrollbar {        
-//     display: none;
-//   }
-// }
- 
- 
-// @media(max-width:768px){
-//   .poster{height:50vh;}
-//   .postercontent{max-width:90%;
-//     h1{font-size:2.4rem;}
-//     p {font-size:1rem;}
-//     button{padding:.5rem 1rem;font-size:.9rem;}
-//   }
-//   .strip__scroller{gap:.8rem;
-//     .card{flex:0 0 120px;
-//       img{aspect-ratio:3/4;}
-//       .title{font-size:.85rem;}
-//     }
-//   }
-// }
- 
- 
 $bg-page:        #f4f1ec;         
 $bg-strip:       #ebe6df;         
 $bg-card:        #ffffff;         
@@ -194,7 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-// Poster & Hero
 .poster {
   position: relative;
   width: 100vw;
@@ -205,7 +22,6 @@ body {
   overflow: hidden;
   color: #fff;
 
-  // Parallax elements
   .sunset, .tumbleweed, .horse {
     position: absolute;
     z-index: 2;
@@ -285,9 +101,10 @@ body {
   z-index: 10;
   animation: fadeInContent 2s ease-in;
 
-  h1 {
+  .hh1 {
     font-size: 3.8rem;
     margin-bottom: .5rem;
+    color: #fff;
   }
 
   p {
@@ -340,7 +157,6 @@ body {
   }
 }
 
-// Remaining styles unchanged (strip, cards, etc.)
 .strip {
   padding: 2rem 1rem;
   background: $bg-strip;
@@ -355,7 +171,7 @@ body {
   h2 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: $text-head;
+    color: #fff;
   }
 
   .view-all {
@@ -523,14 +339,15 @@ body {
     padding-bottom: 1rem;
 
     .card {
-      min-width: 200px;
-      background: rgba(255, 255, 255, 0.1);
+
+      min-width: 230px;
       border-radius: 10px;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.3s;
 
       &:hover {
+        background-color: #cf6b2b;
         transform: scale(1.05);
       }
 
@@ -544,6 +361,10 @@ body {
         padding: 0.5rem;
         text-align: center;
         font-weight: bold;
+         &:hover {
+          color: #fff;
+        transform: scale(1.05);
+      }
       }
     }
   }

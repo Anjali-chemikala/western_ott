@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Ranking.scss";
-import Navbar from '../pages/Navbar'
+import Navbar from '../pages/Navbar';
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+
 
 
 const gunslingers = [
@@ -35,6 +39,8 @@ const App = () => {
   const [input, setInput] = useState("");
   const [joinedPosse, setJoinedPosse] = useState("");
   const [leaderboard, setLeaderboard] = useState(gunslingers);
+  const navigate = useNavigate();
+  
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -44,7 +50,6 @@ const App = () => {
       setLeaderboard(reviewers);
     }
   };
-
   const sendMessage = () => {
     if (input.trim()) {
       const newMsg = { sender: "You", text: input };
@@ -60,6 +65,10 @@ const App = () => {
   return (
     <div className="ran">
       <Navbar />
+      <button className="mt-2" onClick={() => navigate(-1)}>
+  <FaArrowLeft />
+</button>
+
     <div className="container">
       <div className="left-panel">
         <h1>Outlaw Rankings</h1>
@@ -125,6 +134,7 @@ const App = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 };

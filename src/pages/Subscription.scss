@@ -5,11 +5,8 @@ $sepia: #704214;
 $desert-sand: #EDC9AF;
 
 .main-container {
-  // background-color: $desert-sand;
   background: linear-gradient(#fcf3fc,#e76f51,#9e729e);
-
   color: $sepia;
-  padding-top: 80px;
   .hero {
     text-align: center;
     color: $sepia;
@@ -38,7 +35,7 @@ $desert-sand: #EDC9AF;
     justify-content: center;
     gap: 2rem;
 
-    .plan-card {
+    .plan-cards {
 
       flex: 1 1 300px;
       max-width: 320px;
@@ -59,6 +56,9 @@ $desert-sand: #EDC9AF;
         padding-right: 20px;
         position: relative;
         right: 80px;
+        li{
+          margin-bottom: 30px;
+        }
         
     }
     
@@ -95,7 +95,7 @@ ul {
         color: lighten($dusty-gold, 5%);
       }
 
-     .plan-card,button {
+     .plan-cards,button {
         background-color: $burnt-orange;
         color: white;
         padding: 0.6rem 1rem;
@@ -124,8 +124,6 @@ ul {
     width:90%;
     padding: 20px;
     margin-left: 70px;
-
-    // padding: 2rem;
     border-radius: 16px;
     border: 3px solid $sepia;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
@@ -168,7 +166,7 @@ ul {
       align-items: center;
       gap: 1.5rem;
 
-      .plan-card {
+      .plan-cards {
         width: 100%;
         max-width: 90%;
         height: auto;
@@ -257,7 +255,7 @@ ul {
     }
 
     .plans {
-      .plan-card {
+      .plan-cards {
         width: 100%;
         max-width: 95%;
         height: auto;

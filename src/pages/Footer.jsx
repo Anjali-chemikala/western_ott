@@ -25,32 +25,32 @@ const Footer = () => {
             <h4 className="exp">Explore</h4>
             <a href="/home">Home</a>
             <a href="/movies">Movies</a>
-            <a href="/series">Series</a>
-            <a href="/live">Live&nbsp;TV</a>
+            <a href="/subscription">Subscription</a>
+            <a href="/profile">Profile</a>
           </div>
 
           <div className="col">
             <h4 className="exp">Services</h4>
-            <a href="/subscribe">Plans &amp; Pricing</a>
-            <a href="/devices">Supported Devices</a>
-            <a href="/download">Offline Downloads</a>
-            <a href="/gift">Gift Cards</a>
+            <a>Plans &amp; Pricing</a>
+            <a>Supported Devices</a>
+            <a>Offline Downloads</a>
+            <a>Gift Cards</a>
           </div>
 
           <div className="col">
             <h4 className="exp">Help</h4>
-            <a href="/support">Support Center</a>
-            <a href="/faq">FAQs</a>
-            <a href="/contact">Contact Us</a>
-            <a href="/accessibility">Accessibility</a>
+            <a>Support Center</a>
+            <a>FAQs</a>
+            <a>Contact Us</a>
+            <a>Accessibility</a>
           </div>
 
           <div className="col">
             <h4 className="exp">Legal</h4>
-            <a href="/terms">Terms of Service</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/cookies">Cookie Policy</a>
-            <a href="/dmca">DMCA</a>
+            <a>Terms of Service</a>
+            <a>Privacy Policy</a>
+            <a>Cookie Policy</a>
+            <a>DMCA</a>
           </div>
 
           <div className="col">
@@ -73,3 +73,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

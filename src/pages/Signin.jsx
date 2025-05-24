@@ -60,6 +60,7 @@ const Signin = () => {
     }
 
     toast.success("Successfully signed in!", { position: "top-right" });
+    setTimeout(() => navigate("/home"), 1500);
     console.log("Signin data:", formData);
   };
 
@@ -85,7 +86,7 @@ const Signin = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Enter your email or phone number"
+            placeholder="Enter email or phone number"
           />
 
           <label htmlFor="password">Password</label>
@@ -139,7 +140,7 @@ const Signin = () => {
           </div>
 
           <p className="signin-footer">
-            Don’t have an account? <a href="/signup">Sign up</a>
+            Don’t have an account? <a href="/">Sign up</a>
           </p>
         </form>
       </div>

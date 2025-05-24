@@ -1,0 +1,112 @@
+.history-page {
+  padding: 1rem;
+
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        cursor: pointer;
+        background: #8b4513;
+        color: #fff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+
+        &:hover {
+          background: #a0522d;
+        }
+      }
+    }
+  }
+
+  .no-history {
+    text-align: center;
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .history-card {
+     background-color: #fff;
+      border: 2px solid #8b4513;
+      border-radius: 12px;
+      padding: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+          cursor: pointer;
+
+        background-color: #f36f3b;
+      }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .image-title {
+      margin: 0.5rem 0 0.4rem;
+      font-weight: 600;
+      color: #704214;
+    }
+
+    .icon-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.4rem;
+
+      .action-icon {
+        font-size: 1.1rem;
+        background: #fff;
+        border-radius: 50%;
+        padding: 6px;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          background: #f0e4d7;
+          transform: scale(1.1);
+        }
+      }
+
+      .download-icon {
+        color: #cc5500;
+        font-size: 25px;
+
+      }
+
+      .delete-icon {
+        font-size: 25px;
+        color: #8b0000;
+      }
+    }
+  }
+}

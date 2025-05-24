@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./EpisodeTimeline.scss"; // SCSS file
-// import Video from '../pages/Video'
-import Navbar from '../pages/Navbar'
+import "./EpisodeTimeline.scss"; 
+import Navbar from '../pages/Navbar';
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+
 const episodes = [
   {
     id: 1,
@@ -48,16 +51,23 @@ const episodes = [
 
 export default function ShowdownPath() {
   const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]);
+  const navigate = useNavigate();
+
 
   return (
     <div className="anj">
      <Navbar />
+    
+
     <motion.div
       className="showdown-container"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
+    <button className="mt-2" onClick={() => navigate(-1)}>
+      <FaArrowLeft />
+    </button>
       <h2 className="showdown-title">Episode Timeline: The Showdown Path</h2>
 
       <div className="timeline">
@@ -124,6 +134,7 @@ export default function ShowdownPath() {
         )}
       </motion.div>
     </motion.div>
+    <Footer/>
     </div>
   );
 }
