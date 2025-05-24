@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Replaceepisode.scss";
-import { GiHorseHead } from "react-icons/gi";
-import Navbar from '../pages/Navbar'
+import Navbar from '../pages/Navbar';
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import Footer from "./Footer";
+
 
 
 
@@ -14,6 +17,7 @@ const arcs = [
 
 export default function TrailMapNavigation() {
   const [currentArc, setCurrentArc] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,21 +36,21 @@ export default function TrailMapNavigation() {
   return (
     <div className="bbbb">
       <Navbar />
+      <button className="mt-2" onClick={() => navigate(-1)}>
+  <FaArrowLeft />
+</button>
+
     <div className="trail-map-container">
     <h2 className="wes"> Western Anime Trail Map </h2>
 
       <div className="map">
         <svg width="600" height="200" className="trail-path">
-          {/* Lines between arcs */}
           <line x1="80" y1="100" x2="200" y2="100" 
           stroke="#8B4513" stroke-width="6" stroke-dasharray="12,8" stroke-linecap="round" />
           <line x1="200" y1="100" x2="350" y2="70" 
           stroke="#8B4513" stroke-width="6" stroke-dasharray="12,8" stroke-linecap="round" />
           <line x1="350" y1="70" x2="500" y2="120" 
           stroke="#8B4513" stroke-width="6" stroke-dasharray="12,8" stroke-linecap="round" />
-
-
-          {/* Arc markers */}
           {arcs.map((arc, i) => {
             const pos = positions[i];
             return (
@@ -64,27 +68,14 @@ export default function TrailMapNavigation() {
             );
           })}
 
-          {/* Rider icon */}
           {(() => {
             const pos = positions[currentArc - 1];
             return (
-              // <image
-              //   href="./pictures/horseimg.jpg"
-            
-              //   x={pos.x - 20}
-              //   y={pos.y - 50}
-              //   width="40"
-              //   height="40"
-              //   className="rider"
-              // />
- <foreignObject x={pos.x - 25} y={pos.y - 60} width="50" height="50">
-  <div className="rider-icon">
-  <img src="/pictures/hhhh.png" alt="Rider Icon" className="rider-image" />
-</div>
-
-</foreignObject>
-
-
+                  <foreignObject x={pos.x - 25} y={pos.y - 60} width="50" height="50">
+                    <div className="rider-icon">
+                    <img src="/pictures/hhhh.png" alt="Rider Icon" className="rider-image" />
+                  </div>
+                  </foreignObject>
             );
           })()}
         </svg>
@@ -98,6 +89,7 @@ export default function TrailMapNavigation() {
         </p>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 }

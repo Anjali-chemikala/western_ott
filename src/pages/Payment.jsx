@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import './Payment.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from '../pages/Navbar'
+import Navbar from '../pages/Navbar';
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
+
 
 
 const PaymentMethod = () => {
@@ -123,13 +127,22 @@ const PaymentMethod = () => {
 
     if (isValid) {
       toast.success(`Payment processed via ${selectedMethod.toUpperCase()}`);
+      setTimeout(() => navigate("/home"), 1500);
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className='pay'>
       <Navbar />
+      <button className="back-button" onClick={() => navigate(-1)}>
+  <FaArrowLeft />
+</button>
+
+
     <div className="payment-container">
+
     
       <div className="payment-card">
         <h2 className="payment-title">Choose Payment Method</h2>

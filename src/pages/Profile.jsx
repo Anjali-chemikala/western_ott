@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
 import Navbar from '../pages/Navbar'
+import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const MAX_PROFILES = 5;
 
@@ -29,7 +31,12 @@ const ProfileMenu = () => {
     setProfiles([...profiles, newProfile]);
     toast.success('Profile added!');
   };
-
+    const MenuItem = ({ icon, label, onClick }) => (
+      <div className="menu-item" onClick={onClick} style={{ cursor: 'pointer' }}>
+        <span className="icon">{icon}</span>
+        <span className="label">{label}</span>
+      </div>
+    );
   const handleEdit = (index) => {
     const newName = prompt('Edit profile name:', profiles[index].name);
     if (!newName) return;
@@ -59,7 +66,7 @@ const ProfileMenu = () => {
     }));
     setProfiles(updated);
   };
-
+ const navigate = useNavigate()
   return (
     <div className='ma'>
       <Navbar />
@@ -104,25 +111,26 @@ const ProfileMenu = () => {
         )}
       </div>
 
-      <div className="menu-list">
-        <MenuItem icon={<FaCog />} label="Account Settings" />
-        <MenuItem icon={<FaGem />} label="Subscription Plan" />
-        <MenuItem icon={<FaHistory />} label="History" />
-        <MenuItem icon={<FaDownload />} label="Downloads" />
-        <MenuItem icon={<FaSignOutAlt />} label="Sign Out" />
+     <div className="menu-list">
+        <MenuItem icon={<i className="fas fa-cog"></i>} label="Account Settings" onClick={() => navigate('/accountsettings')}/>
+        <MenuItem
+          icon={<i className="fas fa-gem"></i>}
+          label="Subscription Plan"
+          onClick={() => navigate('/subscription')}
+        />
+        <MenuItem icon={<i className="fas fa-history"></i>} label="History" onClick={() => navigate('/history')}/>
+        <MenuItem icon={<i className="fas fa-download"></i>} label="Downloads" onClick={() => navigate('/downloads')} />
+        <MenuItem icon={<i className="fas fa-sign-out-alt"></i>} label="Sign Out" onClick={() => navigate('/signin')} />
       </div>
+
     </div>
     </div>
+    <Footer/>
     </div>
   );
 };
 
-const MenuItem = ({ icon, label }) => (
-  <div className="menu-item">
-    <span className="icon">{icon}</span>
-    <span className="label">{label}</span>
-  </div>
-);
+
 
 export default ProfileMenu;
 

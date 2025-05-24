@@ -15,9 +15,10 @@ const CustomPlayer = () => {
   const [showRecap, setShowRecap] = useState(false);
   const [brightness, setBrightness] = useState(1);
   const [quality, setQuality] = useState("480p");
+  const [activeTab, setActiveTab] = useState("timeline");
   const whipAudio = new Audio("pictures/whipsound.mp3");
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const handleSkip = (seconds) => {
     if (videoRef.current) {
       videoRef.current.currentTime += seconds;
@@ -53,88 +54,120 @@ const CustomPlayer = () => {
     setBrightness(value);
   };
 
- const handleQualityChange = (e) => {
-  const selectedQuality = e.target.value;
-  if (videoRef.current) {
-    const currentTime = videoRef.current.currentTime;
-    const isPaused = videoRef.current.paused;
-    setQuality(selectedQuality);
+  const handleQualityChange = (e) => {
+    const selectedQuality = e.target.value;
+    if (videoRef.current) {
+      const currentTime = videoRef.current.currentTime;
+      const isPaused = videoRef.current.paused;
+      setQuality(selectedQuality);
 
-    const newSrc = qualityOptions[selectedQuality];
-    videoRef.current.src = newSrc;
-    videoRef.current.load();
-    videoRef.current.onloadedmetadata = () => {
-      videoRef.current.currentTime = currentTime;
-      if (!isPaused) {
-        const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise.catch((error) => {
-            console.error("Playback error after quality change:", error);
-          });
+      const newSrc = qualityOptions[selectedQuality];
+      videoRef.current.src = newSrc;
+      videoRef.current.load();
+      videoRef.current.onloadedmetadata = () => {
+        videoRef.current.currentTime = currentTime;
+        if (!isPaused) {
+          const playPromise = videoRef.current.play();
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              console.error("Playback error after quality change:", error);
+            });
+          }
         }
-      }
-    };
-  }
-};
-
+      };
+    }
+  };
 
   return (
     <div className="anjali">
-      <button onClick={()=>{navigate(-1)}}>Back</button>
-    <div className="frontier-player">
-      <video
-        ref={videoRef}
-        src={qualityOptions[quality]}
-        controls
-        className="video"
-        style={{ filter: `brightness(${brightness})` }}
-      />
+      <button onClick={() => navigate(-1)}>Back</button>
+      <div className="frontier-player">
+        <video
+          ref={videoRef}
+          src={qualityOptions[quality]}
+          controls
+          className="video"
+          style={{ filter: `brightness(${brightness})` }}
+        />
 
-      <div className="controls">
-        <button className="btn" onClick={() => handleSkip(-10)}>⏪ Quick Draw Back</button>
-        <button className="btn flashback" onClick={handleFlashback}>🔫 Wanted Flashback</button>
-        <button className="btn" onClick={() => handleSkip(10)}>⏩ Quick Draw Forward</button>
-        <button className="btn recap" onClick={toggleRecap}>🔥 Campfire Recap</button>
+        <div className="controls">
+          <button className="btn" onClick={() => handleSkip(-10)}>⏪ Quick Draw Back</button>
+          <button className="btn flashback" onClick={handleFlashback}>🔫 Wanted Flashback</button>
+          <button className="btn" onClick={() => handleSkip(10)}>⏩ Quick Draw Forward</button>
+          <button className="btn recap" onClick={toggleRecap}>🔥 Campfire Recap</button>
+        </div>
+
+        <div className="extras">
+          <button className="btn icon-btn" onClick={handleReplay}>
+            <FaRedo /> Replay
+          </button>
+
+          <div className="dropdown-quality">
+            <label htmlFor="quality">🎥 Quality:</label>
+            <select id="quality" value={quality} onChange={handleQualityChange}>
+              {Object.keys(qualityOptions).map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="brightness-control">
+            <FaSun />
+            <input
+              type="range"
+              min="0.5"
+              max="1.5"
+              step="0.1"
+              value={brightness}
+              onChange={handleBrightness}
+            />
+          </div>
+        </div>
+
+        {showRecap && (
+          <div className="recap">
+            <h3>🔥 Campfire Recap</h3>
+            <ul>
+              <li>“He who rides alone, rides fastest.”</li>
+              <li>Key Scene: Showdown at Red Rock Saloon</li>
+              <li>Clue: Look for the scar on the bounty poster.</li>
+            </ul>
+          </div>
+        )}
+
+            <div className="tabs">
+            <button
+              className={activeTab === "timeline" ? "active" : ""}
+              onClick={() => {
+                setActiveTab("timeline");
+                navigate("/episodetimeline"); 
+              }}
+            >
+              📽 Episode Timeline
+            </button>
+
+            <button
+              className={activeTab === "ranking" ? "active" : ""}
+              onClick={() => {
+                setActiveTab("ranking");
+                navigate("/ranking"); 
+              }}
+            >
+              🏆 Ranking
+            </button>
+
+            <button
+              className={activeTab === "navigation" ? "active" : ""}
+              onClick={() => {
+                setActiveTab("navigation");
+                navigate("/replace"); 
+              }}
+            >
+              🧭 Navigation
+            </button>
+          </div>
+
       </div>
-
-      <div className="extras">
-        <button className="btn icon-btn" onClick={handleReplay}>
-          <FaRedo /> Replay
-        </button>
-
-        <div className="dropdown-quality">
-          <label htmlFor="quality">🎥 Quality:</label>
-          <select id="quality" value={quality} onChange={handleQualityChange}>
-            {Object.keys(qualityOptions).map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="brightness-control">
-          <FaSun />
-          <input
-            type="range"
-            min="0.5"
-            max="1.5"
-            step="0.1"
-            value={brightness}
-            onChange={handleBrightness}
-          />
-        </div>
-      </div>
-
-      {showRecap && (
-        <div className="recap">
-          <h3>🔥 Campfire Recap</h3>
-          <ul>
-            <li>“He who rides alone, rides fastest.”</li>
-            <li>Key Scene: Showdown at Red Rock Saloon</li>
-            <li>Clue: Look for the scar on the bounty poster.</li>
-          </ul>
-        </div>
-      )}
-    </div>
     </div>
   );
 };

@@ -1,25 +1,25 @@
-
-
 $burnt-orange: #CC5500;
 $leather-brown: #8B4513;
 $dusty-gold: #DAA520;
 $sepia: #704214;
 $desert-sand: #EDC9AF;
 
+.pay{
+  background: linear-gradient(#bd7b38,#e76f51);
+
+
+}
 .payment-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: $desert-sand;
-  background: linear-gradient(#bd7b38,#e76f51);
-
-  padding: 1rem;
 }
 
 .payment-card {
   background-color: $leather-brown;
   padding: 2rem;
+  margin-top: -5rem;
   border-radius: 1.5rem;
   max-width: 400px;
   width: 100%;
@@ -108,7 +108,6 @@ $desert-sand: #EDC9AF;
   }
 }
 
-// Responsive for 320px - 375px
 @media (max-width: 375px) {
   .payment-card {
     padding: 1.25rem;

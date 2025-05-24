@@ -66,7 +66,7 @@ const Signup = () => {
 
     if (!emailOrPhoneError && !passwordError && !confirmPasswordError) {
       toast.success("Account created successfully!", { position: "top-right" });
-      setTimeout(() => navigate("/"), 1500);
+      setTimeout(() => navigate("/signin"), 1500); 
     } else {
       toast.error("Please fill all the details correctly.", {
         position: "top-right",
@@ -84,24 +84,14 @@ const Signup = () => {
           className="character-img"
         />
       </div>
-      <div className="right-panel" >
-      {/* <img
-          src="/pictures/bg1.png"
-          alt="Western Luffy"
-          className="character-img"
-        /> */}
+      <div className="right-panel">
         <form className="signup-form" onSubmit={handleSubmit}>
-        {/* <img
-          src="/pictures/bg1.png"
-          alt="Western Luffy"
-          className="character-img"
-        /> */}
           <h2 className="form-title">Create Account</h2>
 
           <label>Email or Phone Number</label>
           <input
             type="text"
-            placeholder="Enter your email or phone number"
+            placeholder="Enter email or phone number"
             value={emailOrPhone}
             onChange={(e) => {
               const input = e.target.value;
@@ -178,25 +168,23 @@ const Signup = () => {
               LOG IN
             </a>
           </p>
-        <p className="social-heading">Or sign up with</p>
 
+          <p className="social-heading">Or sign up with</p>
           <div className="social-icons">
-          <a href="https://accounts.google.com/" target="_blank" rel="noreferrer">
-            <FaGoogle size={24} />
-          </a>
-          <a href="https://facebook.com/" target="_blank" rel="noreferrer">
-            <FaFacebook size={24} />
-          </a>
-          <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-            <FaInstagram size={24} />
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-            <FaTwitter size={24} />
-          </a>
-        </div>
+            <a href="https://accounts.google.com/" target="_blank" rel="noreferrer">
+              <FaGoogle size={24} />
+            </a>
+            <a href="https://facebook.com/" target="_blank" rel="noreferrer">
+              <FaFacebook size={24} />
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noreferrer">
+              <FaInstagram size={24} />
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+              <FaTwitter size={24} />
+            </a>
+          </div>
         </form>
-        
-               
       </div>
     </div>
   );

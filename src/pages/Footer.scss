@@ -1,5 +1,7 @@
 .footer {
-  background: black;
+  background: rgba(0, 0, 0, 0.7); 
+  backdrop-filter: blur(4px); 
+  border-top: 1px solid #444;
   color:#bbb;
   padding:3rem 1rem 2rem;
   text-align:center;
@@ -51,7 +53,7 @@
     .social a {
       display:inline-block;
       margin-right:.6rem;
-      font-size:1.2rem;
+      font-size:1.5rem;
       color:#26c9e6;
  
       &:hover { color:#ffb347; }
@@ -60,7 +62,7 @@
  
   .copy {
     font-size:.8rem;
-    color:#666;
+    color:#fff;
   }
 }
  
@@ -74,3 +76,5 @@
     justify-content: center;
     align-items: center;
  }
+
+ 
