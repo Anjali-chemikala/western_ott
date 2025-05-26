@@ -11,11 +11,10 @@ export default function AccountSettings() {
   const [isEditing, setIsEditing] = useState(false);
   const [profileImage, setProfileImage] = useState("/pictures/img1.png");
   const [fullName, setFullName] = useState("Anjali Reddy");
-  const [email, setEmail] = useState("pushpanjalichemikala@gmail.com");
+  const [email] = useState("pushpanjalichemikala@gmail.com");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -177,22 +176,6 @@ export default function AccountSettings() {
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-          </div>
-        </div>
-
-        <div className="ac-card">
-          <h3 className="subtitle">Notifications</h3>
-          <div className="toggle-row">
-            <span>Email Notifications</span>
-            <label className="switch">
-              <input
-                type="checkbox"
-                checked={notificationsEnabled}
-                onChange={() => setNotificationsEnabled(!notificationsEnabled)}
-                disabled={!isEditing}
-              />
-              <span className="slider"></span>
-            </label>
           </div>
         </div>
 
