@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Downloads.scss';
-import { FaDownload, FaTrash } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';

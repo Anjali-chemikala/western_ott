@@ -12,6 +12,8 @@ const Navbar = () => {
   let activeMenu = '';
   if (path === '/home') activeMenu = 'home';
   else if (path.includes('westernmovies')) activeMenu = 'westernmovies';
+  else if (path.includes('category')) activeMenu = 'category';
+
   else if (path.includes('subscription')) activeMenu = 'subscription';
   else if (path.includes('profile')) activeMenu = 'profile';
 
@@ -40,6 +42,12 @@ const Navbar = () => {
             onClick={() => navigate('/westernmovies')}
           >
             Western-Movies
+          </li>
+           <li
+            className={activeMenu === 'category' ? 'active' : ''}
+            onClick={() => navigate('/category')}
+          >
+            Genre
           </li>
           <li
             className={activeMenu === 'subscription' ? 'active' : ''}

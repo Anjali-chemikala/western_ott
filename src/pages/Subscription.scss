@@ -4,6 +4,7 @@ $dusty-gold: #DAA520;
 $sepia: #704214;
 $desert-sand: #EDC9AF;
 
+
 .main-container {
   background: linear-gradient(#fcf3fc,#e76f51,#9e729e);
   color: $sepia;
@@ -120,7 +121,7 @@ ul {
     text-align: center;
     background-color: $leather-brown;
     color: $desert-sand;
-    margin-top: 3rem;
+    margin: 3rem;
     width:90%;
     padding: 20px;
     margin-left: 70px;

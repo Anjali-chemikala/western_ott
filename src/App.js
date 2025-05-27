@@ -22,7 +22,9 @@ import Savelater from './pages/Savelater';
 import Viewall from './pages/Viewall';
 import AccountSettings from './pages/Accountsettings';
 import Westernmovies from './pages/Westernmovies';
-
+import Activeplan from './pages/Activeplan';
+import CategoriesPage from './pages/Category';
+import CategoryDetails from "./pages/CategoryDetails";
 const App = () => {
   return (
     <div>
@@ -48,6 +50,13 @@ const App = () => {
        <Route path='/viewall' element={< Viewall/>} />
         <Route path='/westernmovies' element={< Westernmovies/>} />
         <Route path='/accountsettings' element={< AccountSettings/>} />
+        <Route path='/activeplan' element={< Activeplan/>} />
+        <Route path='/category' element={<CategoriesPage/>} />
+        <Route path="/category/:categoryName" element={<CategoryDetails/>} />
+
+
+
+
 
        </Routes>
     </div>

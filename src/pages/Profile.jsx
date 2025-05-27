@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
-import {FaUser, FaUserPlus, FaCog, FaGem, FaSignOutAlt, FaHistory, FaDownload, FaEdit, FaTrash} from 'react-icons/fa';
+import React, { useState, useRef } from 'react';
+import { 
+  FaUser, 
+  FaUserPlus, 
+  FaCog, 
+  FaGem, 
+  FaSignOutAlt, 
+  FaHistory, 
+  FaDownload, 
+  FaEdit, 
+  FaTrash,
+ 
+} from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Profile.scss';
-import Navbar from '../pages/Navbar'
+import Navbar from '../pages/Navbar';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 
@@ -11,12 +22,18 @@ const MAX_PROFILES = 5;
 
 const ProfileMenu = () => {
   const [profiles, setProfiles] = useState([{ name: 'Anjali', isActive: true }]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newProfileName, setNewProfileName] = useState('');
+  const navigate = useNavigate();
+  const scrollRef = useRef(null);
 
   const handleAddProfile = () => {
-    const name = prompt('Enter profile name:');
-    if (!name) return;
+    if (!newProfileName.trim()) {
+      toast.error('Profile name cannot be empty!');
+      return;
+    }
 
-    const exists = profiles.some(p => p.name.toLowerCase() === name.toLowerCase());
+    const exists = profiles.some(p => p.name.toLowerCase() === newProfileName.toLowerCase());
     if (exists) {
       toast.error('Profile already exists!');
       return;
@@ -27,16 +44,13 @@ const ProfileMenu = () => {
       return;
     }
 
-    const newProfile = { name, isActive: false };
+    const newProfile = { name: newProfileName.trim(), isActive: false };
     setProfiles([...profiles, newProfile]);
     toast.success('Profile added!');
+    setNewProfileName('');
+    setShowAddModal(false);
   };
-    const MenuItem = ({ icon, label, onClick }) => (
-      <div className="menu-item" onClick={onClick} style={{ cursor: 'pointer' }}>
-        <span className="icon">{icon}</span>
-        <span className="label">{label}</span>
-      </div>
-    );
+
   const handleEdit = (index) => {
     const newName = prompt('Edit profile name:', profiles[index].name);
     if (!newName) return;
@@ -66,71 +80,94 @@ const ProfileMenu = () => {
     }));
     setProfiles(updated);
   };
- const navigate = useNavigate()
+
+  const MenuItem = ({ icon, label, onClick }) => (
+    <div className="menu-item" onClick={onClick} style={{ cursor: 'pointer' }}>
+      <span className="icon">{icon}</span>
+      <span className="label">{label}</span>
+    </div>
+  );
+
   return (
     <div className='ma'>
       <Navbar />
-    <div className='mainprofile'>
-    <div className="profile-menu">
-      <ToastContainer position="top-center" autoClose={2000} />
-      <h2>Welcome</h2>
+      <div className='mainprofile'>
+        <div className="profile-menu">
+          <ToastContainer position="top-center" autoClose={2000} />
+          <h2>Welcome</h2>
 
-      <div className="profile-icons">
-        {profiles.map((profile, index) => (
-          <div
-            key={index}
-            className={`profile-icon ${profile.isActive ? 'active' : ''}`}
-            onClick={() => setActive(index)}
-          >
-            <FaUser />
-            <span>{profile.name}</span>
-            <div className="actions">
-              <FaEdit 
-                title="Edit"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleEdit(index);
-                }}
-              />
-              <FaTrash
-                title="Delete"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDelete(index);
-                }}
-              />
+          <div className="profile-icons-wrapper">
+            
+
+            <div className="profile-icons" ref={scrollRef}>
+              {profiles.map((profile, index) => (
+                <div
+                  key={index}
+                  className={`profile-icon ${profile.isActive ? 'active' : ''}`}
+                  onClick={() => setActive(index)}
+                >
+                  <FaUser />
+                  <span>{profile.name}</span>
+                  <div className="actions">
+                    <FaEdit
+                      title="Edit"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleEdit(index);
+                      }}
+                    />
+                    <FaTrash
+                      title="Delete"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDelete(index);
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+
+              {profiles.length < MAX_PROFILES && (
+                <div className="profile-icon add-profile" onClick={() => setShowAddModal(true)}>
+                  <FaUserPlus />
+                  <span>Add Profile</span>
+                </div>
+              )}
             </div>
           </div>
-        ))}
 
-        {profiles.length < MAX_PROFILES && (
-          <div className="profile-icon" onClick={handleAddProfile}>
-            <FaUserPlus />
-            <span>Add Profile</span>
+          <div className="menu-list">
+            <MenuItem icon={<FaCog />} label="Account Settings" onClick={() => navigate('/accountsettings')} />
+            <MenuItem icon={<FaGem />} label="Subscription Plan" onClick={() => navigate('/activeplan')} />
+            <MenuItem icon={<FaHistory />} label="History" onClick={() => navigate('/history')} />
+            <MenuItem icon={<FaDownload />} label="Downloads" onClick={() => navigate('/downloads')} />
+            <MenuItem icon={<FaSignOutAlt />} label="Sign Out" onClick={() => navigate('/signin')} />
           </div>
-        )}
+        </div>
       </div>
 
-     <div className="menu-list">
-        <MenuItem icon={<i className="fas fa-cog"></i>} label="Account Settings" onClick={() => navigate('/accountsettings')}/>
-        <MenuItem
-          icon={<i className="fas fa-gem"></i>}
-          label="Subscription Plan"
-          onClick={() => navigate('/subscription')}
-        />
-        <MenuItem icon={<i className="fas fa-history"></i>} label="History" onClick={() => navigate('/history')}/>
-        <MenuItem icon={<i className="fas fa-download"></i>} label="Downloads" onClick={() => navigate('/downloads')} />
-        <MenuItem icon={<i className="fas fa-sign-out-alt"></i>} label="Sign Out" onClick={() => navigate('/signin')} />
-      </div>
+      <Footer />
 
-    </div>
-    </div>
-    <Footer/>
+      {showAddModal && (
+        <div className="modal-overlay" onClick={() => setShowAddModal(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <h3>Add New Profile</h3>
+            <input
+              type="text"
+              value={newProfileName}
+              onChange={(e) => setNewProfileName(e.target.value)}
+              placeholder="Enter profile name"
+              autoFocus
+            />
+            <div className="modal-buttons">
+              <button onClick={handleAddProfile}>Add</button>
+              <button onClick={() => setShowAddModal(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-
-
 export default ProfileMenu;
-

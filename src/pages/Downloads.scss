@@ -20,6 +20,7 @@
     .button-group {
       display: flex;
       gap: 1rem;
+      align-items: center;
 
       button {
         display: flex;
@@ -39,6 +40,8 @@
 
       .clear-all {
         background-color: #cc5500; 
+        width: 9rem;
+        height:3rem;
         color: white;
 
         &:hover {
@@ -49,6 +52,7 @@
       .back-button {
         background-color: #8b4513; 
         color: white;
+        margin-top: -5px;
 
         &:hover {
           background-color: #6e3610;

@@ -14,6 +14,8 @@
     .button-group {
       display: flex;
       gap: 1rem;
+      align-items: center;
+
 
       button {
         padding: 0.5rem 1rem;
@@ -33,7 +35,11 @@
       }
     }
   }
-
+  .back-button {
+        background-color: #8b4513; 
+        color: white;
+        margin-top: -5px;
+  }
   .no-history {
     text-align: center;
     font-style: italic;
@@ -110,3 +116,13 @@
     }
   }
 }
+.clear-all {
+  background-color: #cc5500; 
+  width: 9rem;
+  height:3rem;
+  color: white;
+
+  &:hover {
+      background-color: #a84400;
+    }
+  }
