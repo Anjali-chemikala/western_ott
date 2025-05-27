@@ -33,7 +33,7 @@ const PlanSelection = () => {
           <li>Ad-supported, providing you with content for less</li>
         </ul>
         <div className="price">Monthly Price: ₹199</div>
-        <button onClick={() => navigate('/payment')}>Choose Basic Plan</button>
+        <button onClick={() => navigate('/payment', { state: { plan: 'Basic', price: 199 } })}>Choose Basic Plan </button>      
       </div>
 
 
@@ -46,9 +46,10 @@ const PlanSelection = () => {
             <li>Enjoy crisp HD quality for enhanced viewing pleasure</li>
             <li>Minimal ads so you can watch more uninterrupted</li>
           </ul>
-  <div className="price">Monthly Price: ₹349</div>
+        <div className="price">Monthly Price: ₹349</div>
+        <button onClick={() => navigate('/payment', { state: { plan: 'Standard', price: 349 } })}>Choose Standard Plan</button>
+        
 
-          <button onClick={() => navigate('/payment')}>Choose Standard Plan</button>
         </div>
 
         <div className="plan-cards">
@@ -59,9 +60,8 @@ const PlanSelection = () => {
             <li>Enjoy stunning Ultra HD quality and crystal-clear visuals</li>
             <li>Enjoy an ad-free experience for uninterrupted viewing</li>
           </ul>
-  <div className="price">Monthly Price: <span>₹499</span></div>
-
-          <button onClick={() => navigate('/payment')}>Choose Premium Plan</button>
+        <div className="price">Monthly Price: <span>₹499</span></div>
+        <button onClick={() => navigate('/payment', { state: { plan: 'Premium', price: 499 } })}>Choose Premium Plan</button>
         </div>
       </div>
 

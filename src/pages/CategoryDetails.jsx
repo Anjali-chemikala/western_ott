@@ -119,7 +119,9 @@ const mockMovies = {
     { title: "The Searchers", image: "/pictures/ep7.jpg" },
     { title: "Red River", image: "/pictures/ep8.jpg" },
     { title: "Butch Cassidy and the Sundance Kid", image: "/pictures/ep9.jpg" },
-    { title: "True Grit", image: "/pictures/ep10.jpg" }
+    { title: "True Grit", image: "/pictures/ep10.jpg" },
+    { title: "The Good, The Bad and The Ugly", image: "/pictures/ep1.jpg" },
+    { title: "High Noon", image: "/pictures/ep2.png" },
   ],
   "Western Romance": [
     { title: "Legends of the Fall", image: "/pictures/ep18.jpg" },
@@ -141,7 +143,9 @@ const mockMovies = {
     { title: "The Searchers", image: "/pictures/ep7.jpg" },
     { title: "Red River", image: "/pictures/ep8.jpg" },
     { title: "Butch Cassidy and the Sundance Kid", image: "/pictures/ep9.jpg" },
-    { title: "True Grit", image: "/pictures/ep10.jpg" }
+    { title: "True Grit", image: "/pictures/ep10.jpg" },
+    { title: "The Good, The Bad and The Ugly", image: "/pictures/ep1.jpg" },
+    { title: "High Noon", image: "/pictures/ep2.png" },
   ],
   "Western Horror": [
     { title: "Bone Tomahawk", image: "/pictures/ep24.jpg" },

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import './Payment.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../pages/Navbar';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
-
-
-
 const PaymentMethod = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { plan, price } = location.state || {}; 
+
   const [selectedMethod, setSelectedMethod] = useState('card');
   const [cardDetails, setCardDetails] = useState({
     name: '',
@@ -19,6 +20,7 @@ const PaymentMethod = () => {
   });
   const [upiId, setUpiId] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
+
   const handleNameChange = (e) => {
     const regex = /^[a-zA-Z\s]*$/;
     const val = e.target.value;
@@ -126,109 +128,117 @@ const PaymentMethod = () => {
     else if (selectedMethod === 'netbanking') isValid = validateNetbanking();
 
     if (isValid) {
-      toast.success(`Payment processed via ${selectedMethod.toUpperCase()}`);
+      toast.success(`Payment processed via ${selectedMethod.toUpperCase()} for ₹${price}`);
       setTimeout(() => navigate("/home"), 1500);
     }
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className='pay'>
       <Navbar />
       <button className="back-button" onClick={() => navigate(-1)}>
-  <FaArrowLeft />
-</button>
+        <FaArrowLeft />
+      </button>
 
+      <div className="payment-container">
+        <div className="payment-card">
+          <h2 className="payment-title">Choose Payment Method</h2>
 
-    <div className="payment-container">
-
-    
-      <div className="payment-card">
-        <h2 className="payment-title">Choose Payment Method</h2>
-
-        <div className="payment-methods">
-          {['card', 'upi', 'netbanking'].map((method) => (
-            <button
-              key={method}
-              onClick={() => setSelectedMethod(method)}
-              className={`payment-button ${selectedMethod === method ? 'active' : ''}`}
-            >
-              {method.toUpperCase()}
-            </button>
-          ))}
-        </div>
-
-        {selectedMethod === 'card' && (
-          <div className="card-inputs">
-            <input
-              name="name"
-              type="text"
-              placeholder="Name on Card"
-              value={cardDetails.name}
-              onChange={handleNameChange}
-              maxLength={30}
-            />
-            <input
-              name="number"
-              type="text"
-              placeholder="Card Number"
-              value={cardDetails.number}
-              onChange={handleCardChange}
-              maxLength={16}
-            />
-            <div className="card-row">
-              <input
-                name="expiry"
-                type="text"
-                placeholder="MM/YY"
-                value={cardDetails.expiry}
-                onChange={handleCardChange}
-                maxLength={5}
-              />
-              <input className='cvvv'
-                name="cvv"
-                type="password"
-                placeholder="CVV"
-                value={cardDetails.cvv}
-                onChange={handleCardChange}
-                maxLength={3}
-              />
+          {plan && price ? (
+            <div className="plan-summary">
+              <h3>Selected Plan: <span>{plan}</span></h3>
+              <h4>Amount: ₹{price}</h4>
             </div>
+          ) : (
+            <div className="plan-summary">
+              <h3>No plan selected</h3>
+              <p>Please go back and choose a plan first.</p>
+            </div>
+          )}
+
+          <div className="payment-methods">
+            {['card', 'upi', 'netbanking'].map((method) => (
+              <button
+                key={method}
+                onClick={() => setSelectedMethod(method)}
+                className={`payment-button ${selectedMethod === method ? 'active' : ''}`}
+              >
+                {method.toUpperCase()}
+              </button>
+            ))}
           </div>
-        )}
 
-        {selectedMethod === 'upi' && (
-          <input
-            type="text"
-            placeholder="Enter UPI ID"
-            className="upi-input"
-            value={upiId}
-            onChange={handleUpiChange}
-            maxLength={50}
-          />
-        )}
+          {selectedMethod === 'card' && (
+            <div className="card-inputs">
+              <input
+                name="name"
+                type="text"
+                placeholder="Name on Card"
+                value={cardDetails.name}
+                onChange={handleNameChange}
+                maxLength={30}
+              />
+              <input
+                name="number"
+                type="text"
+                placeholder="Card Number"
+                value={cardDetails.number}
+                onChange={handleCardChange}
+                maxLength={16}
+              />
+              <div className="card-row">
+                <input
+                  name="expiry"
+                  type="text"
+                  placeholder="MM/YY"
+                  value={cardDetails.expiry}
+                  onChange={handleCardChange}
+                  maxLength={5}
+                />
+                <input
+                  className='cvvv'
+                  name="cvv"
+                  type="password"
+                  placeholder="CVV"
+                  value={cardDetails.cvv}
+                  onChange={handleCardChange}
+                  maxLength={3}
+                />
+              </div>
+            </div>
+          )}
 
-        {selectedMethod === 'netbanking' && (
-          <select
-            className="netbanking-select"
-            value={selectedBank}
-            onChange={(e) => setSelectedBank(e.target.value)}
-          >
-            <option value="">Select Bank</option>
-            <option value="SBI">SBI</option>
-            <option value="ICICI">ICICI</option>
-            <option value="HDFC">HDFC</option>
-            <option value="Axis">Axis</option>
-          </select>
-        )}
+          {selectedMethod === 'upi' && (
+            <input
+              type="text"
+              placeholder="Enter UPI ID"
+              className="upi-input"
+              value={upiId}
+              onChange={handleUpiChange}
+              maxLength={50}
+            />
+          )}
 
-        <button className="pay-now-button" onClick={handlePayment}>
-          Pay Now
-        </button>
+          {selectedMethod === 'netbanking' && (
+            <select
+              className="netbanking-select"
+              value={selectedBank}
+              onChange={(e) => setSelectedBank(e.target.value)}
+            >
+              <option value="">Select Bank</option>
+              <option value="SBI">SBI</option>
+              <option value="ICICI">ICICI</option>
+              <option value="HDFC">HDFC</option>
+              <option value="Axis">Axis</option>
+            </select>
+          )}
+
+          <button className="pay-now-button" onClick={handlePayment}>
+            Pay Now
+          </button>
+        </div>
+        <ToastContainer position="top-right" />
       </div>
-      <ToastContainer position="top-right" />
-    </div>
     </div>
   );
 };
