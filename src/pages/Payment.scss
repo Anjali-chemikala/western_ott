@@ -127,3 +127,17 @@ $desert-sand: #EDC9AF;
     flex-direction: column;
   }
 }
+
+
+.plan-summary {
+  margin-bottom: 1rem;
+
+  h3, h4 {
+    font-size: 20px;
+
+    color: #fff 
+  }
+  span {
+    font-weight: bold;
+  }
+}
